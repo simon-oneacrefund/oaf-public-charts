@@ -4,11 +4,11 @@ kind: Service
 metadata:
   name: airbyte-server-svc
 spec:
-  type: { { .Values.service.type } }
+  type: {{ .Values.service.type }}
   ports:
-    - port: { { .Values.service.port } }
-      targetPort: http
-      protocol: TCP
-      name: http
+  - port: {{ .Values.service.port }}
+    targetPort: http
+    protocol: TCP
+    name: http
   selector:
     airbyte: server
