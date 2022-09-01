@@ -1,0 +1,44 @@
+apiVersion: v2
+appVersion: 0.40.3
+dependencies:
+  - name: common
+    repository: https://charts.bitnami.com/bitnami
+    tags:
+      - bitnami-common
+    version: 1.x.x
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.bitnami.com/bitnami
+    version: 10.x.x
+  - condition: global.logs.minio.enabled
+    name: minio
+    repository: https://charts.bitnami.com/bitnami
+    version: 11.x.x
+  - condition: airbyte-bootloader.enabled
+    name: airbyte-bootloader
+    repository: https://airbytehq.github.io/helm-charts/
+    version: 0.45.1
+  - condition: temporal.enabled
+    name: temporal
+    repository: https://airbytehq.github.io/helm-charts/
+    version: 0.45.1
+  - condition: webapp.enabled
+    name: webapp
+    repository: https://airbytehq.github.io/helm-charts/
+    version: 0.45.1
+  - condition: server.enabled
+    name: server
+    repository: https://airbytehq.github.io/helm-charts/
+    version: 0.45.1
+  - condition: worker.enabled
+    name: worker
+    repository: https://airbytehq.github.io/helm-charts/
+    version: 0.45.1
+  - condition: pod-sweeper.enabled
+    name: pod-sweeper
+    repository: https://airbytehq.github.io/helm-charts/
+    version: 0.45.1
+description: Helm chart to deploy airbyte
+name: airbyte
+type: application
+version: 0.45.1
